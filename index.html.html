@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@justLevi | Web Designer & Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #0a0a0a;
+            --text: #e0e0e0;
+            --accent: #fafafa;
+            --border: #222;
+            --hover: #333;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Archivo', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        header {
+            padding: 60px 0 40px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            color: var(--accent);
+        }
+
+        .tagline {
+            font-size: 14px;
+            color: #888;
+            margin-top: 4px;
+            font-weight: 300;
+        }
+
+        /* Intro */
+        .intro {
+            padding: 80px 0 60px;
+            max-width: 680px;
+        }
+
+        .intro h1 {
+            font-size: 42px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 24px;
+            letter-spacing: -1px;
+        }
+
+        .intro p {
+            font-size: 18px;
+            color: #aaa;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        /* Projects */
+        .projects {
+            padding: 60px 0 100px;
+        }
+
+        .section-title {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #666;
+            margin-bottom: 40px;
+        }
+
+        .project {
+            margin-bottom: 80px;
+            border: 1px solid var(--border);
+            transition: border-color 0.3s ease;
+        }
+
+        .project:hover {
+            border-color: #444;
+        }
+
+        .project-image {
+            width: 100%;
+            height: 500px;
+            background: #111;
+            border-bottom: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.9;
+            transition: opacity 0.3s ease, transform 0.5s ease;
+        }
+
+        .project:hover .project-image img {
+            opacity: 1;
+            transform: scale(1.02);
+        }
+
+        .project-info {
+            padding: 32px;
+        }
+
+        .project-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .project-type {
+            font-size: 13px;
+            color: #777;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+            font-weight: 500;
+        }
+
+        .project-description {
+            font-size: 15px;
+            color: #999;
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            font-size: 14px;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s ease;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .project-link:hover {
+            opacity: 0.7;
+        }
+
+        .project-link svg {
+            margin-left: 6px;
+            transition: transform 0.3s ease;
+        }
+
+        .project-link:hover svg {
+            transform: translateX(4px);
+        }
+
+        /* Contact */
+        .contact {
+            padding: 80px 0 100px;
+            border-top: 1px solid var(--border);
+        }
+
+        .contact h2 {
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            letter-spacing: -0.5px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 32px;
+            margin-top: 32px;
+        }
+
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #666;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .contact-value {
+            font-size: 16px;
+            color: var(--accent);
+            text-decoration: none;
+            font-family: 'JetBrains Mono', monospace;
+            transition: opacity 0.3s ease;
+        }
+
+        .contact-value:hover {
+            opacity: 0.7;
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 13px;
+            color: #666;
+            font-weight: 300;
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .intro h1 {
+                font-size: 32px;
+            }
+
+            .intro p {
+                font-size: 16px;
+            }
+
+            .project-image {
+                height: 300px;
+            }
+
+            .project-info {
+                padding: 24px;
+            }
+
+            .contact h2 {
+                font-size: 24px;
+            }
+        }
+
+        /* Loading animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .intro, .projects, .contact {
+            animation: fadeIn 0.8s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">@justLevi</div>
+            <div class="tagline">Web Designer & Developer</div>
+        </div>
+    </header>
+
+    <main>
+        <section class="intro">
+            <div class="container">
+                <h1>Building responsive websites with clean design and solid code.</h1>
+                <p>I'm Levi, a self-taught web designer and developer based in Lagos. I work with WordPress, Elementor, and modern web tools to create sites that look good and work smoothly on any device.</p>
+            </div>
+        </section>
+
+        <section class="projects">
+            <div class="container">
+                <div class="section-title">Selected Work</div>
+
+                <div class="project">
+                    <div class="project-image">
+                        <img id="nexcoreerp-img" alt="nexcoreerp website">
+                    </div>
+                    <div class="project-info">
+                        <div class="project-type">WordPress / Elementor</div>
+                        <h3 class="project-title">nexcoreerp</h3>
+                        <p class="project-description">A fully responsive business website built with WordPress and Elementor. Features custom layouts, smooth navigation, and mobile-first design approach.</p>
+                        <a href="https://nexcoreerp.fwh.is" target="_blank" class="project-link">
+                            View Live Site
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project">
+                    <div class="project-image">
+                        <img id="blvckcut-img" alt="blvckcut barbershop website">
+                    </div>
+                    <div class="project-info">
+                        <div class="project-type">WordPress / Elementor</div>
+                        <h3 class="project-title">BLVCKCUT Barbershop</h3>
+                        <p class="project-description">Modern barbershop website with booking functionality, service pages, and elegant dark aesthetic. Built to showcase services and capture appointments online.</p>
+                        <a href="https://blvckcut.fwh.is" target="_blank" class="project-link">
+                            View Live Site
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact">
+            <div class="container">
+                <h2>Let's work together</h2>
+                <p style="color: #999; max-width: 580px;">I'm open to remote opportunities, freelance projects, and collaborations. Feel free to reach out.</p>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-label">Email</div>
+                        <a href="mailto:godwinoyewole5@gmail.com" class="contact-value">godwinoyewole5@gmail.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-label">TikTok</div>
+                        <a href="https://tiktok.com/@justlevi86" target="_blank" class="contact-value">@justlevi86</a>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-label">Location</div>
+                        <span class="contact-value">Lagos, Nigeria</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2026 @justLevi. Built with care.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Embedded screenshots
+        const nexcoreerpImg = document.getElementById('nexcoreerp-img');
+        const blvckcutImg = document.getElementById('blvckcut-img');
+        
+        nexcoreerpImg.src = 'images/nexheader.jpg';
+        blvckcutImg.src = 'images/blvckcut.png';
+</script>
+</body>
+</html>
